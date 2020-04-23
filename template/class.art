@@ -1,0 +1,22 @@
+import Taro, { Component } from '@tarojs/taro';
+import { View } from '@tarojs/components';
+import './{{type}}'
+
+export default class {{name}} extends Component {
+
+  config = {
+       navigationBarTitleText: '{{title}}'
+  }
+
+  componentDidMount () {}
+
+  state = {}
+
+  render() {
+    return (
+      <View>
+        {{title}}页面
+      </View>
+    );
+  }
+}
