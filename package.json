@@ -1,26 +1,29 @@
 {
   "name": "taro-create-page",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "taro 编译插件 自动根据设置的pages 生成项目模板路径 用于项目初始化等",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "javascript-obfuscator ./src/index.js --output ./bin/index.js --exclude node_modules --config javascript-obfuscator.json && node index"
   },
+  "keywords": [
+    "taro",
+    "小程序",
+    "自动生成路径模板",
+    "taro小程序"
+  ],
   "main": "./index.js",
+  "homepage": "https://github.com/zpzxgcr/taro-create-page",
   "author": "wly",
   "license": "ISC",
   "dependencies": {
-    "commander": "^4.1.1",
-    "globby": "^11.0.0",
-    "qiniu": "^7.3.0"
-  },
-  "devDependencies": {
     "@babel/parser": "^7.9.4",
     "@babel/traverse": "^7.9.5",
     "@babel/types": "^7.9.5",
-    "art-template": "^4.13.2",
+    "art-template": "^4.13.2"
+  },
+  "devDependencies": {
     "chalk": "^3.0.0",
-    "fs-extra": "^9.0.0",
-    "ora": "^4.0.4"
+    "fs-extra": "^9.0.0"
   }
 }
