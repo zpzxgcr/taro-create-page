@@ -77,7 +77,7 @@ class AutoCreatePage {
           })
           root = rootNode ? rootNode.value.value : ''
 
-          value.elements.forEach(v => {
+          value.elements.forEach((v, index) => {
             if (t.isStringLiteral(v)) {
               const pagePath = `${root}/${v.value}`.replace(/\/{2,}/g, '/').replace(/^\//, '')
               const fielName = pagePath.slice(pagePath.lastIndexOf('/') + 1, pagePath.length)
@@ -85,13 +85,13 @@ class AutoCreatePage {
               const cssType = `${fielName}${path.extname(_this.rootCssType)}`
               let title = fielName
               let isHooks = false
-              if (v.trailingComments) {
-                const { value } = v.trailingComments[0]
-                title = value.match(/[\u4e00-\u9fa5]+/g)[0]
-                isHooks = /ishooks/i.test(value)
+              const current = index === value.elements.length - 1 ? v : value.elements[index + 1]
+              if (current && (current.leadingComments || current.trailingComments)) {
+                const { value: values } = (index === value.elements.length - 1 ? current.trailingComments : current.leadingComments)[0]
+                title = values.match(/[\u4e00-\u9fa5]+/g)[0]
+                isHooks = /ishooks/i.test(values)
               }
-              _this.writeTemplate({
-              title, isHooks, cssType, name, fielName, pagePath})
+              _this.writeTemplate({ title, isHooks, cssType, name, fielName, pagePath})
             }
           })
         }
