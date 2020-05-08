@@ -1,6 +1,6 @@
 {
   "name": "taro-create-page",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "taro 编译插件 自动根据设置的pages 生成项目模板路径 用于项目初始化等",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

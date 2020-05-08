@@ -73,10 +73,9 @@ class AutoCreatePage {
           // 分包
           let root = ''
           const rootNode = astPath.parent.properties.find(v => {
-            return v.key.value === 'root'
+            return v.key.name === 'root'
           })
           root = rootNode ? rootNode.value.value : ''
-
           value.elements.forEach((v, index) => {
             if (t.isStringLiteral(v)) {
               const pagePath = `${root}/${v.value}`.replace(/\/{2,}/g, '/').replace(/^\//, '')
